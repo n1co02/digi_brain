@@ -1,0 +1,9 @@
+#Author Erik Priemer
+#import 'common/types.graphql'
+
+type Query {
+  getGptPrediction(prompt: String!): String!
+  getGptBrainstorm(keywords: [String!]!): String!
+}
+
+# type Mutation {}

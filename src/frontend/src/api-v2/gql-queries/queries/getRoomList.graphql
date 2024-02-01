@@ -1,0 +1,8 @@
+query getRoomList {
+  getRoomList {
+    id
+    name
+    isCreator
+    keywords
+  }
+}

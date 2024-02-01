@@ -1,0 +1,3 @@
+query getGptBrainstorm($roomId: String!) {
+  getGptBrainstorm(roomId: $roomId)
+}

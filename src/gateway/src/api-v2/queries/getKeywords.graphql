@@ -1,0 +1,5 @@
+#Author Erik Priemer
+
+query getKeywords($roomId: String!) {
+  getKeywords(roomId: $roomId)
+}

@@ -1,0 +1,5 @@
+#Author Erik Priemer
+
+mutation leaveRoom($userId: String!, $roomId: String!) {
+  leaveRoom(userId: $userId, roomId: $roomId)
+}

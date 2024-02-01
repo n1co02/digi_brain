@@ -1,0 +1,5 @@
+#Author Erik Priemer
+
+mutation deleteCard($cardId: String!, $userId: String!, $roomId: String!, $sectionId: String!) {
+  deleteCard(cardId: $cardId, userId: $userId, roomId: $roomId, sectionId: $sectionId)
+}

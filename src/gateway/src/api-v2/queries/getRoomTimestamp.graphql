@@ -1,0 +1,17 @@
+#Author Erik Priemer
+
+query getRoomTimestamp($roomId: String!, $timestamp: Float!) {
+  getRoomTimestamp(roomId: $roomId, timestamp: $timestamp) {
+    id
+    name
+    cards {
+      id
+      userId
+      headline
+      text
+      color
+      labels
+      userName
+    }
+  }
+}

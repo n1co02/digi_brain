@@ -1,0 +1,15 @@
+//Author Nicolas Ostermann
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../../../auth-service/database/digiBrain.db"
+}
+model userAuth {
+  userId   String  @id @default(cuid())
+  password String
+  userName String @unique
+}

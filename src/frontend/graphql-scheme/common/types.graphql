@@ -1,0 +1,54 @@
+type Card {
+  id: String!
+  userId: String!
+  userName: String!
+  headline: String!
+  text: String!
+  color: String!
+  labels: [String!]!
+}
+
+type Section {
+  id: String!
+  name: String!
+  cards: [Card!]!
+}
+
+type Room {
+  id: String!
+  roomName: String!
+  isCreator: Boolean!
+  users: [String!]!
+  keywords: [String!]!
+  sections: [Section!]!
+}
+
+type RoomWithHistory {
+  id: String!
+  name: String!
+  isCreator: Boolean!
+  keywords: [String!]!
+  gptHistory: [String!]!
+  users: [String!]!
+  sections: [Section!]!
+}
+
+type RoomWithoutHistory {
+  id: String!
+  name: String!
+  isCreator: Boolean!
+  keywords: [String!]!
+  users: [String!]!
+  sections: [Section!]!
+}
+
+type UserToken {
+  userId: String!
+  token: String!
+}
+
+type RoomHistoryElement {
+  label: String!
+  timestamp: Float!
+  value: Float!
+}

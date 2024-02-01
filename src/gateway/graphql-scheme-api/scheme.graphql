@@ -1,0 +1,79 @@
+#Author Erik Priemer
+#import 'common/types.graphql'
+input SectionInput {
+  id: String!
+  name: String!
+  cards: [CardInput!]
+}
+
+input CardInput {
+  id: String!
+  userId: String!
+  headline: String!
+  text: String!
+  color: String!
+  labels: [String!]!
+  userName: String!
+}
+
+type Query {
+  login(userName: String!, password: String!): UserToken!
+  registration(userName: String!, password: String!): UserToken!
+
+  getRoomList(userId: String!): [RoomWithoutHistory!]!
+  getRoom(userId: String!, roomId: String!): RoomWithHistory!
+
+  getRoomHistory(roomId: String!, search: String): [RoomHistoryElement!]!
+  getRoomTimestamp(roomId: String!, timestamp: Float!): [Section!]!
+
+  getGptBrainstorm(keywords: [String!]!): String!
+  getGptPrediction(prompt: String!): String!
+
+  getKeywords(roomId: String!): [String!]!
+}
+
+type Mutation {
+  leaveRoom(userId: String!, roomId: String!): Boolean!
+  joinRoom(userId: String!, roomId: String!): Boolean!
+  createRoom(userId: String!, roomName: String!, keywords: [String!]!): String!
+  deleteRoom(userId: String!, roomId: String!): Boolean!
+
+  addSection(userId: String!, roomId: String!, sectionName: String!): String!
+
+  addCard(
+    userId: String!
+    roomId: String!
+    sectionId: String!
+    headline: String!
+    text: String!
+    color: String!
+    labels: [String!]!
+    userName: String!
+  ): String! #CardId
+  editCard(
+    roomId: String!
+    sectionId: String!
+    cardId: String!
+    userId: String
+    headline: String!
+    text: String!
+    color: String!
+    labels: [String!]!
+    userName: String!
+  ): Boolean!
+  deleteCard(roomId: String!, sectionId: String!, cardId: String!, userId: String!): Boolean!
+
+  createRoomTimestamp(
+    roomId: String!
+    label: String!
+    timestamp: Float!
+    room: [SectionInput!]!
+  ): Boolean!
+
+  addUser(userId: String!, userName: String!): Boolean!
+
+  saveGptHistory(roomId: String!, userId: String!, gptHistory: String!): Boolean!
+}
+
+# type Subscription {
+# }

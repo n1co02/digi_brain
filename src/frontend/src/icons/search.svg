@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+  <g id="Gruppe_15" data-name="Gruppe 15" transform="translate(-247 -542)">
+    <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(247 542)" fill="#fff" stroke="#707070" stroke-width="3">
+      <circle cx="17.5" cy="17.5" r="17.5" stroke="none"/>
+      <circle cx="17.5" cy="17.5" r="16" fill="none"/>
+    </g>
+    <path id="Icon_awesome-search" data-name="Icon awesome-search" d="M18.337,16.075l-3.62-3.62A.871.871,0,0,0,14.1,12.2h-.592A7.549,7.549,0,1,0,12.2,13.507V14.1a.871.871,0,0,0,.254.617l3.62,3.62a.868.868,0,0,0,1.231,0l1.028-1.028A.876.876,0,0,0,18.337,16.075ZM7.553,12.2A4.648,4.648,0,1,1,12.2,7.553,4.645,4.645,0,0,1,7.553,12.2Z" transform="translate(255.205 550.204)" fill="#707070"/>
+  </g>
+</svg>
+

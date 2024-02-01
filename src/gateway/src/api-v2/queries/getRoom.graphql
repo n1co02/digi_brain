@@ -1,0 +1,25 @@
+#Author Erik Priemer
+
+query getRoom($userId: String!, $roomId: String!) {
+  getRoom(userId: $userId, roomId: $roomId) {
+    id
+    name
+    isCreator
+    keywords
+    gptHistory
+    users
+    sections {
+      id
+      name
+      cards {
+        id
+        userId
+        headline
+        text
+        color
+        labels
+        userName
+      }
+    }
+  }
+}

@@ -1,0 +1,3 @@
+mutation deleteCard($cardId: String!, $roomId: String!, $sectionId: String!) {
+  deleteCard(cardId: $cardId, roomId: $roomId, sectionId: $sectionId)
+}

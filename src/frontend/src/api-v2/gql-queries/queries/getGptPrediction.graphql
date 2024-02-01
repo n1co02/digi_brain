@@ -1,0 +1,3 @@
+query getGptPrediction($prompt: String!) {
+  getGptPrediction(prompt: $prompt)
+}

@@ -1,0 +1,3 @@
+subscription subscribeToRoom($roomId: String!) {
+  subscribeToRoom(roomId: $roomId)
+}

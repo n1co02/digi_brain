@@ -1,0 +1,4 @@
+#Author Erik Priemer
+mutation saveGptHistory($userId: String!, $roomId: String!, $gptHistory: String!) {
+  saveGptHistory(userId: $userId, roomId: $roomId, gptHistory: $gptHistory)
+}

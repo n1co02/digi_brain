@@ -1,0 +1,4 @@
+type Query {
+  getGptPrediction(prompt: String!): String!
+  getGptBrainstorm(keywords: [String!]!): String!
+}

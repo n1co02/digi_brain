@@ -1,0 +1,5 @@
+#Author Erik Priemer
+
+mutation addUser($userId: String!, $userName: String!) {
+  addUser(userId: $userId, userName: $userName)
+}

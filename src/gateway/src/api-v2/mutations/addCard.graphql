@@ -1,0 +1,22 @@
+#Author Erik Priemer
+mutation addCard(
+  $userId: String!
+  $roomId: String!
+  $sectionId: String!
+  $headline: String!
+  $text: String!
+  $color: String!
+  $labels: [String!]!
+  $userName: String!
+) {
+  addCard(
+    userId: $userId
+    roomId: $roomId
+    sectionId: $sectionId
+    headline: $headline
+    text: $text
+    color: $color
+    labels: $labels
+    userName: $userName
+  )
+}

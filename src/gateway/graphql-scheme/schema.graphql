@@ -1,0 +1,72 @@
+#Author Erik Priemer
+#import 'common/types.graphql'
+
+input SectionInput {
+  id: String!
+  name: String!
+  cards: [CardInput!]
+}
+
+input CardInput {
+  id: String!
+  userId: String!
+  userName: String!
+  headline: String!
+  text: String!
+  color: String!
+  labels: [String!]
+}
+
+type Query {
+  getRoomList: [RoomWithoutHistory!]!
+  getRoom(roomId: String!): RoomWithHistory!
+
+  getRoomHistory(roomId: String!, search: String): [RoomHistoryElement!]!
+  getRoomTimestamp(roomId: String!, timestamp: Float!): [Section!]!
+
+  getGptBrainstorm(roomId: String!): String
+  getGptPrediction(prompt: String!): String!
+}
+
+type Mutation {
+  leaveRoom(roomId: String!): Boolean!
+  joinRoom(roomId: String!): Boolean!
+  createRoom(roomName: String!, keywords: [String!]!): String!
+  deleteRoom(roomId: String!): Boolean!
+
+  addSection(roomId: String!, sectionName: String!): String!
+
+  addCard(
+    roomId: String!
+    sectionId: String!
+    headline: String!
+    text: String!
+    color: String!
+    labels: [String!]!
+    userName: String!
+  ): String! #CardId
+  editCard(
+    roomId: String!
+    sectionId: String!
+    cardId: String!
+    headline: String!
+    text: String!
+    color: String!
+    labels: [String!]!
+    userName: String!
+  ): Boolean!
+  deleteCard(roomId: String!, sectionId: String!, cardId: String!): Boolean!
+
+  createRoomTimestamp(
+    roomId: String!
+    label: String!
+    timestamp: Float!
+    room: [SectionInput!]!
+  ): Boolean!
+
+  addUser(userName: String!): Boolean!
+}
+
+type Subscription {
+  subscribeToRoom(roomId: String): String
+}

@@ -1,0 +1,3 @@
+mutation saveGptHistory($roomId: String!, $gptHistory: String!) {
+  saveGptHistory(roomId: $roomId, gptHistory: $gptHistory)
+}

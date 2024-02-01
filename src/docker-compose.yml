@@ -1,0 +1,73 @@
+#author Nicolas Ostermann
+version: "3.9"
+
+name: digibrain
+
+services:
+  authservice:
+    build:
+      context: ./auth-service
+      dockerfile: ./Dockerfile
+    ports:
+      - "4042:4042"
+    networks:
+      mynetwork:
+        ipv4_address: 192.168.178.1
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ./Dockerfile
+    ports:
+      - "80:3000"
+    networks:
+      mynetwork:
+        ipv4_address: 192.168.178.2
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: ./Dockerfile
+    ports:
+      - "4041:4041"
+    networks:
+      mynetwork:
+        ipv4_address: 192.168.178.3
+  roomservice:
+    build:
+      context: ./room-service
+      dockerfile: ./Dockerfile
+    ports:
+      - "4043:4043"
+    depends_on:
+      - mongodb
+    networks:
+      mynetwork:
+        ipv4_address: 192.168.178.4
+  mongodb:
+    build:
+      context: ./mongodb-service
+      dockerfile: ./Dockerfile
+    ports:
+      - "27017:27017"
+    networks:
+      mynetwork:
+        ipv4_address: 192.168.178.5
+  gptservice:
+    build:
+      context: ./gpt-service
+      dockerfile: ./Dockerfile
+    ports:
+      - "4044:4044"
+    depends_on:
+      - authservice
+      - roomservice
+      - frontend
+      - gateway
+      - mongodb
+    networks:
+      mynetwork:
+        ipv4_address: 192.168.178.6
+networks:
+  mynetwork:
+    ipam:
+      config:
+        - subnet: 192.168.178.0/20

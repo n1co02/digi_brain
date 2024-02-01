@@ -1,0 +1,3 @@
+mutation addSection($roomId: String!, $sectionName: String!) {
+  addSection(roomId: $roomId, sectionName: $sectionName)
+}

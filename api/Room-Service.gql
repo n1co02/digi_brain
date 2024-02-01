@@ -1,0 +1,111 @@
+input SectionInput {
+  id: String!
+  name: String!
+  cards: [CardInput!]
+}
+
+input CardInput {
+  id: String!
+  userId: String!
+  headline: String!
+  text: String!
+  color: String!
+  labels: [String!]!
+  userName: String!
+}
+
+type Query {
+  getRoomList(userId: String!): [RoomWithoutHistory!]!
+  getRoom(userId: String!, roomId: String!): RoomWithHistory!
+  getRoomHistory(roomId: String!, search: String): [RoomHistoryElement!]!
+  getRoomTimestamp(roomId: String!, timestamp: Float!): [Section!]!
+  getKeywords(roomId: String!): [String!]!
+}
+
+type RoomWithoutHistory {
+  id: String!
+  name: String!
+  isCreator: Boolean!
+  keywords: [String!]!
+  users: [String!]!
+  sections: [Section!]!
+}
+
+type Section {
+  id: String!
+  name: String!
+  cards: [Card!]!
+}
+
+type Card {
+  id: String!
+  userId: String!
+  headline: String!
+  text: String!
+  color: String!
+  labels: [String!]!
+  userName: String!
+}
+
+type RoomWithHistory {
+  id: String!
+  name: String!
+  isCreator: Boolean!
+  keywords: [String!]!
+  gptHistory: [String!]!
+  users: [String!]!
+  sections: [Section!]
+}
+
+type RoomHistoryElement {
+  label: String!
+  timestamp: Float!
+  value: Float!
+}
+
+type Mutation {
+  leaveRoom(userId: String!, roomId: String!): Boolean!
+  joinRoom(userId: String!, roomId: String!): Boolean!
+  createRoom(userId: String!, roomName: String!, keywords: [String!]!): String!
+  deleteRoom(userId: String!, roomId: String!): Boolean!
+  addSection(userId: String!, roomId: String!, sectionName: String!): String!
+  addCard(
+    userId: String!
+    roomId: String!
+    sectionId: String!
+    headline: String!
+    text: String!
+    color: String!
+    labels: [String!]!
+    userName: String!
+  ): String!
+  editCard(
+    roomId: String!
+    sectionId: String!
+    cardId: String!
+    userId: String
+    headline: String!
+    text: String!
+    color: String!
+    labels: [String!]!
+    userName: String!
+  ): Boolean!
+  deleteCard(
+    roomId: String!
+    sectionId: String!
+    cardId: String!
+    userId: String!
+  ): Boolean!
+  createRoomTimestamp(
+    roomId: String!
+    label: String!
+    timestamp: Float!
+    room: [SectionInput!]!
+  ): Boolean!
+  addUser(userId: String!, userName: String!): Boolean!
+  saveGptHistory(
+    roomId: String!
+    userId: String!
+    gptHistory: String!
+  ): Boolean!
+}

@@ -1,0 +1,5 @@
+#Author Erik Priemer
+
+mutation joinRoom($userId: String!, $roomId: String!) {
+  joinRoom(userId: $userId, roomId: $roomId)
+}

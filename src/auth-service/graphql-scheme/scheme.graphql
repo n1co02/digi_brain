@@ -1,0 +1,9 @@
+#Author Erik Priemer
+#import 'common/types.graphql'
+
+type Query {
+  login(userName: String!, password: String!): UserToken!
+  registration(userName: String!, password: String!): UserToken!
+}
+
+# type Mutation {}

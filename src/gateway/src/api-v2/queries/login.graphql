@@ -1,0 +1,8 @@
+#Author Erik Priemer
+
+query login($userName: String!, $password: String!) {
+  login(userName: $userName, password: $password) {
+    userId
+    token
+  }
+}

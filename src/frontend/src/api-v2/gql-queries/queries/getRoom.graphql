@@ -1,0 +1,23 @@
+query getRoom($roomId: String!) {
+  getRoom(roomId: $roomId) {
+    id
+    name
+    isCreator
+    users
+    gptHistory
+    keywords
+    sections {
+      id
+      name
+      cards {
+        id
+        userId
+        headline
+        text
+        color
+        labels
+        userName
+      }
+    }
+  }
+}

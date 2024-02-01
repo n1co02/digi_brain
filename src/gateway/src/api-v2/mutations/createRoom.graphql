@@ -1,0 +1,5 @@
+#Author Erik Priemer
+
+mutation createRoom($userId: String!, $roomName: String!, $keywords: [String!]!) {
+  createRoom(userId: $userId, roomName: $roomName, keywords: $keywords)
+}

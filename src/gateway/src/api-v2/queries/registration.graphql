@@ -1,0 +1,8 @@
+#Author Erik Priemer
+
+query registration($userName: String!, $password: String!) {
+  registration(userName: $userName, password: $password) {
+    userId
+    token
+  }
+}

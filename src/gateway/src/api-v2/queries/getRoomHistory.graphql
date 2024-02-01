@@ -1,0 +1,9 @@
+#Author Erik Priemer
+
+query getRoomHistory($roomId: String!, $search: String) {
+  getRoomHistory(roomId: $roomId, search: $search) {
+    label
+    timestamp
+    value
+  }
+}

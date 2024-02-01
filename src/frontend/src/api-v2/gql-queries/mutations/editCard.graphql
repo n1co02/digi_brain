@@ -1,0 +1,21 @@
+mutation editCard(
+  $cardId: String!
+  $roomId: String!
+  $sectionId: String!
+  $headline: String!
+  $text: String!
+  $color: String!
+  $labels: [String!]!
+  $userName: String!
+) {
+  editCard(
+    cardId: $cardId
+    roomId: $roomId
+    sectionId: $sectionId
+    headline: $headline
+    text: $text
+    color: $color
+    labels: $labels
+    userName: $userName
+  )
+}

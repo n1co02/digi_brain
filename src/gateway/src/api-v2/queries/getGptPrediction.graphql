@@ -1,0 +1,5 @@
+#Author Erik Priemer
+
+query getGptPrediction($prompt: String!) {
+  getGptPrediction(prompt: $prompt)
+}

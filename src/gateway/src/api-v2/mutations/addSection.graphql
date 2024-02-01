@@ -1,0 +1,5 @@
+#Author Erik Priemer
+
+mutation addSection($userId: String!, $roomId: String!, $sectionName: String!) {
+  addSection(userId: $userId, roomId: $roomId, sectionName: $sectionName)
+}

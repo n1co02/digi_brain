@@ -1,0 +1,5 @@
+#Author Erik Priemer
+type UserToken {
+  userId: String!
+  token: String!
+}

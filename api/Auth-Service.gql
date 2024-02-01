@@ -1,0 +1,9 @@
+type Query {
+  login(userName: String!, password: String!): UserToken!
+  registration(userName: String!, password: String!): UserToken!
+}
+
+type UserToken {
+  userId: String!
+  token: String!
+}

@@ -1,0 +1,8 @@
+mutation createRoomTimestamp(
+  $roomId: String!
+  $label: String!
+  $timestamp: Float!
+  $room: [SectionInput!]!
+) {
+  createRoomTimestamp(roomId: $roomId, label: $label, timestamp: $timestamp, room: $room)
+}

@@ -1,0 +1,19 @@
+image: node:16.17.0
+
+# Reusable definitions
+definitions:
+  caches:
+    npm: $HOME/.npm
+  steps:
+    - step: &lint
+        name: Lint
+        caches:
+          - npm
+        script:
+          - npm ci
+          - npm run lint
+
+# Workflow configuration
+pipelines:
+  default:
+    - step: *lint
